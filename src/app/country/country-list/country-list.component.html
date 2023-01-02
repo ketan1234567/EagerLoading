@@ -1,1 +1,6 @@
-<p>country-list works!</p>
+<h3>Country List</h3>
+<p *ngFor="let country of countries$ | async">
+	 {{country.CountryId}}. {{country.CountryName}} 
+	- {{country.capital}} - {{country.currency}}
+</p>
+

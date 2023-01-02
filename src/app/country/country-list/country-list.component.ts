@@ -1,10 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CountryService } from '../services/country.service';
+import { Country } from '../Country';
+
 
 @Component({
-  selector: 'app-country-list',
-  templateUrl: './country-list.component.html',
-  styleUrls: ['./country-list.component.css']
+  templateUrl: './country-list.component.html'
+
 })
-export class CountryListComponent {
+export class CountryListComponent implements OnInit{
+  countries$:Observable<Country[]>
+  constructor(private countryServices:CountryService){
+    this.countries$=this.countryServices.getCountries();
+  }
+
+
+
+  ngOnInit() {
+   
+  }
+
 
 }
